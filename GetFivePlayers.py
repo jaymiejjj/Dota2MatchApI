@@ -19,14 +19,12 @@ def GetFivePlayers(team_id):
     for i in GetTeammates(team_id):
         accounts_list.append(i['account_id'])
 
-    print(accounts_list)
-
     fivePlayerslist = []
-    for accounts in sorted(list, reverse=True):
-        while len(fivePlayerslist) < 5:
+
+    while len(fivePlayerslist) < 5:
+        for accounts in sorted(list, reverse=True):
             if accounts[1] in accounts_list:
                 fivePlayerslist.append(accounts[1])
-            else:
+        else:
                 continue
-    return(fivePlayerslist)
-
+    return fivePlayerslist
